@@ -31,11 +31,13 @@ def main():
         )
     args = parser.parse_args()
     ticker = args.ticker
-    logging.info(f"user input ticker: {ticker}.")
+    logging.info(f"Starting run for ticker: {ticker}.")
     #Orchestration function using the argument passed in with the help of argparse.
     t_info = orchestrate_data(ticker)
+    logging.info(f"Finished run for ticker: {ticker}.")
 
     return t_info
 
 if __name__ == "__main__":
     print(main())
+    
