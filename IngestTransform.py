@@ -21,6 +21,16 @@ def get_extra_info(ticker):
 #This is to download actual current/historical market data including date, price, open, close, high, low, and volume.
 def get_price_history(ticker):
     t = yf.download(ticker,period='5d')
+    t.columns = ['_'.join(col).strip() if isinstance(col, tuple) else col for col in t.columns]
+    rename_map = {
+        f"Open_{ticker}": "Open",
+        f"High_{ticker}": "High",
+        f"Low_{ticker}": "Low",
+        f"Close_{ticker}": "Close",
+        f"Adj Close_{ticker}": "Adj_Close",
+        f"Volume_{ticker}": "Volume"
+    }
+    t = t.rename(columns=rename_map)
     return t
 
 #Add column to calculate the intraday difference between the opening price and closing price to
