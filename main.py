@@ -16,7 +16,7 @@ def orchestrate_data(ticker):
     logging.info("Calculating metrics...")
     t_info = calculate_metrics(t_info,ticker)
     logging.info("Loading to SQLite Database...")
-    t_info = load_to_sqlite(t_info)
+    load_to_sqlite(t_info)
     return t_info
 
 #Main logic will go here
