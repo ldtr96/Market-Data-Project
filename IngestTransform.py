@@ -46,6 +46,8 @@ def calculate_metrics(df,ticker):
     if df.index.name == 'Date':
         df = df.reset_index()
 
+    df['Date'] = df['Date'].astype(str)
+
     # Re-order the columns before loading into SQLite DB
     ordered_cols = [
         'Ticker',
