@@ -2,6 +2,16 @@ import sqlite3
 import pandas as pd
 import logging
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),               # prints to console
+        logging.FileHandler("pipeline.log")    # writes to file
+    ]
+)
+
+
 #Loads dataframe from the MarketData-Modular file into SQLite DB market_data.db
 def load_to_sqlite(df):
     logging.info("Connecting to database...")

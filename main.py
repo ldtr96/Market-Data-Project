@@ -6,6 +6,16 @@ from load_db import load_to_sqlite
 import argparse
 import logging
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),               # prints to console
+        logging.FileHandler("pipeline.log")    # writes to file
+    ]
+)
+
+
 #This shall be the main file where the orchestration and run should occur.
 
 #Orchestration
