@@ -39,7 +39,7 @@ def calculate_metrics(df,ticker):
     df=df.copy()
     df['Intraday_Difference']= df['Close']-df['Open']
     df['percent_chg_price']=((df['Close']-df['Open'])/df['Open'])*100
-    df['Volume_Price_Trend']=round(df[('Volume',ticker)]*df['percent_chg_price'],4)
+    df['Volume_Price_Trend']=round(df['Volume']*df['percent_chg_price'],4)
     df['Ticker'] = ticker
 
     # Reset index if needed
