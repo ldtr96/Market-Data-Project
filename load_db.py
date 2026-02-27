@@ -4,11 +4,7 @@ import logging
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(),               # prints to console
-        logging.FileHandler("pipeline.log")    # writes to file
-    ]
+    format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 
