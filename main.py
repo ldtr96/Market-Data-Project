@@ -5,6 +5,7 @@ from IngestTransform import get_price_history, calculate_metrics
 from load_db import load_to_sqlite
 import argparse
 import logging
+from fastapi import FastAPI, HTTPException
 
 logging.basicConfig(
     level=logging.INFO,
@@ -14,12 +15,32 @@ logging.basicConfig(
         logging.FileHandler("pipeline.log")    # writes to file
     ]
 )
+#initialize instance of the FastAPI class.
+app = FastAPI()
 
-
-#This shall be the main file where the orchestration and run should occur.
+#Setting up an endpoint to query the SQLite DB
+@app.get("/data/{ticker}")
+async def get_prices(ticker:str, start_date: str = None, end_date: str= None):
+    query = "SELECT * FROM ticker_price_data WHERE Ticker = ?"
+    params=[ticker]
+    if start_date:
+        query +=" AND Date >= ?"
+        params.append(start_date)
+    
+    if end_date:
+        query +=" AND Date <= ?"
+        params.append(end_date)
+    
+    conn = sqlite3.connect("market_data.db")
+    logging.info("Connection to market_data.db opened...")
+    df = pd.read_sql(query,conn,params=tuple(params))
+    conn.close()
+    logging.info("Connection to market_data.db closed.")
+    if df.empty:
+        raise HTTPException(status_code=404, detail=f"No data found for {ticker}.")
+    return {"Ticker":ticker, "data":df.to_dict(orient="records")}
 
 #Orchestration
-
 def orchestrate_data(ticker):
     logging.info("Getting price history...")
     t_info = get_price_history(ticker)

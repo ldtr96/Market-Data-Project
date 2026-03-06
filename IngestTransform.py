@@ -33,8 +33,7 @@ def get_price_history(ticker):
     t = t.rename(columns=rename_map)
     return t
 
-#Add column to calculate the intraday difference between the opening price and closing price to
-#measure movement & percent change & Volume Price Trend.
+#Add column to calculate the intraday difference between the opening price and closing price to measure movement & percent change & Volume Price Trend.
 def calculate_metrics(df,ticker):
     df=df.copy()
     df['Intraday_Difference']= df['Close']-df['Open']

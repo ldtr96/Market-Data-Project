@@ -7,7 +7,6 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-
 #Loads dataframe from the MarketData-Modular file into SQLite DB market_data.db
 def load_to_sqlite(df):
     logging.info("Connecting to database...")
