@@ -1,0 +1,21 @@
+# Database
+market_data.db
+
+# Logs
+pipeline.log
+*.log
+
+# Virtual environment
+.venv/
+venv/
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code settings
+.vscode/
+
+# Environment variables
+.env
