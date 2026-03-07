@@ -4,12 +4,14 @@ Repository for financial data pipeline project.
 The purpose of this project is to ingest financial data (historical stock price data) using the yfinance library. The yfinance library is an open source tool that allows users to fetch financial data from Yahoo Finance. Once the data is ingested, I transform the data and calculate additional metrics using the Pandas library. The data is then loaded into a SQLite database named market_data.db. This is to be run every Saturday to fetch the last 5 trading days worth of information for any given stock given the ticker symbol e.g. AAPL. There is also a FastAPI REST Endpoint for /data/{ticker}. This serves data from the market_data.db to the user via the endpoint.
 
 # File structure
+```
 ├── main.py             # Entry point, orchestrates ETL pipeline
 ├── IngestTransform.py  # Fetches and transforms stock data via yfinance
 ├── load_db.py          # Loads transformed data into SQLite
 ├── setup_db.py         # One-time DB schema setup (run separately)
 ├── market_data.db      # SQLite database (auto-generated)
 └── requirements.txt
+```
 
 # Setting Up the Project
 
