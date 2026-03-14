@@ -6,6 +6,7 @@ from load_db import load_to_sqlite
 import argparse
 import logging
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 logging.basicConfig(
     level=logging.INFO,
@@ -17,6 +18,23 @@ logging.basicConfig(
 )
 #initialize instance of the FastAPI class.
 app = FastAPI()
+
+#Configuring CORS to allow passing to React
+origins = [
+    "http://127.0.0.1:8000",
+    "http://localhost:5173",   # ← add this, this is your React app
+    "http://127.0.0.1:5173",
+    "http://localhost",
+    "http://localhost:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 #Setting up an endpoint to query the SQLite DB
 @app.get("/data/{ticker}")
