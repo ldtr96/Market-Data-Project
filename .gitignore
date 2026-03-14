@@ -19,3 +19,9 @@ __pycache__/
 
 # Environment variables
 .env
+
+#Node Modules
+node_modules
+
+#Random query
+sqlite_query.py
