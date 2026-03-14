@@ -5,3 +5,5 @@ REM The below will be executed by Windows Task Scheduler.
 "%~dp0\.venv\Scripts\python.exe" main.py --ticker AAPL
 "%~dp0\.venv\Scripts\python.exe" main.py --ticker MSFT
 "%~dp0\.venv\Scripts\python.exe" main.py --ticker NVDA
+"%~dp0\.venv\Scripts\python.exe" main.py --ticker META
+"%~dp0\.venv\Scripts\python.exe" main.py --ticker AMZN
