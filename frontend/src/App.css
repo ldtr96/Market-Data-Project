@@ -1,1 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+table {
+    border-collapse:collapse;
+    width: 100%;
+    border-radius: 10px;
+}
 
+th, td {
+    padding: 12px 24px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.header {
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+input {
+    margin-right:10px;
+}
+
+#root{
+    width:100%;
+}
+
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+    padding:40px 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;  /* dark navy — own the dark theme */
+  color: white;
+}
