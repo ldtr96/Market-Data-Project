@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import StockChart from './StockChart';
 
 function App() {
   
@@ -58,7 +59,9 @@ if (isLoading){
           Search
         </button>
       </div>
-
+      <div className= "StockChart">
+        <StockChart />
+      </div>
       <div className= "data-table">
         <table>
           <thead className="header">
