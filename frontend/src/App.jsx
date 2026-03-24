@@ -60,7 +60,7 @@ if (isLoading){
         </button>
       </div>
       <div className= "StockChart">
-        <StockChart />
+        <StockChart data={data} ticker={searchTicker} />
       </div>
       <div className= "data-table">
         <table>

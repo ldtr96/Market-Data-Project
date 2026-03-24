@@ -8,10 +8,15 @@ export default function StockChart({data, ticker}){
             <ResponsiveContainer width="100%" height={400}>
                 <LineChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" />
+                    <XAxis dataKey="Date" />
                     <YAxis />
-                    <Tooltip />
-                    <Line type="monotone" dataKey="close" stoke="8884d8" dot={false} />
+                    <Tooltip
+                    labelFormatter={(label)=>`Date: ${label}`}
+                    formatter={(value)=>[value.toFixed(2), 'Close']}
+                    contentStyle={{ backgroundColor: '#1a1a2e', color: 'white' }}
+                    labelStyle={{ color: 'white' }}
+                    />
+                    <Line type="monotone" dataKey="Close" stroke="#8884d8" dot={false} />
                 </LineChart>
             </ResponsiveContainer>
         </div>
