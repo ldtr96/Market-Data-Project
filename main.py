@@ -7,13 +7,17 @@ import argparse
 import logging
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LOG_FILE = os.path.join(BASE_DIR, "pipeline.log")
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
         logging.StreamHandler(),               # prints to console
-        logging.FileHandler("pipeline.log")    # writes to file
+        logging.FileHandler(LOG_FILE)    # writes to file
     ]
 )
 #initialize instance of the FastAPI class.
