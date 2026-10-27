@@ -14,7 +14,7 @@ def load_to_pg(df):
         dbname="marketdata",
         user="marketuser",
         password="marketpass",
-        host="host.docker.internal",
+        host="localhost",
         port=5432
     )
 
